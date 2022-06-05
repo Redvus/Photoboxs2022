@@ -1,0 +1,411 @@
+/*==============================
+=            Footer            =
+==============================*/
+$footer-grid: (
+    columns: 1,
+    gutter: 5rem
+);
+
+.footer {
+    $base-spacing: 2em !default;
+    $action-color: #477DCA !default;
+    $medium-screen: 40em !default;
+    $large-screen: 53.75em !default;
+    $footer-background: $primary;
+    $footer-color: white;
+    $footer-link-color: transparentize($footer-color, 0.6);
+    $footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+    $footer-height-block: 50px;
+
+    background: $footer-background;
+    display: block;
+    width: 100%;
+    min-height: 10vh;
+    position: relative;
+    bottom: 0;
+    color: $fourth;
+    z-index: 0;
+
+    // @include media($XSmall) {
+    //     padding-bottom: 60px;
+    // }
+
+    // @include media($Small) {
+    //     padding-bottom: 60px;
+    // }
+
+    &__top {
+        width: 100%;
+        height: $padding * 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $third;
+
+        span {
+            font-family: $heading-font;
+            font-size: $font-size-h2;
+            color: $fourth;
+
+            a {
+                color: $fourth;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    &-wrapper {
+        @extend %wrapperWidth;
+        height: 100%;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    &-container {
+
+        &__top-block {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        &__part {
+            width: calc((100% / 4) - (#{$padding} * 2));
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: ($padding * 2) 0;
+            margin-right: $padding * 2;
+
+            &:last-child {
+                width: calc((100% / 4));
+                margin-right: 0;
+            }
+        }
+
+        &__logo {
+            width: 100%;
+            margin-bottom: $padding * 2;
+
+            svg {
+                width: auto;
+                height: $padding * 5;
+                display: block;
+            }
+
+            &--red {
+                fill: $fourth;
+            }
+
+            &--black {
+                fill: $third;
+            }
+
+        }
+
+        &__adress {
+
+            p {
+                text-align: left;
+            }
+
+            i {
+                color: $third;
+                margin-right: $padding / 2;
+            }
+
+            a {
+                color: $fourth;
+
+                &:hover {
+                    color: $third;
+                }
+            }
+        }
+
+        &__slogan {
+            height: $padding * 3;
+            display: flex;
+            align-items: center;
+            font-family: $heading-font;
+            font-size: $font-size-large;
+            text-transform: uppercase;
+            color: $fourth;
+        }
+
+        &__links {
+            padding-top: $padding * 6;
+
+
+            h4 {
+                text-align: right;
+                color: $fourth;
+            }
+
+            ul {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                text-align: right;
+
+                li {
+
+                    a {
+                        color: $third;
+
+                        &:hover {
+                            color: $fourth;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__social {
+            padding-top: $padding * 6;
+
+            ul {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+
+                li {
+                    margin-left: $padding;
+
+                    a {
+                        font-size: $font-size-large;
+                        color: $third;
+
+                        svg {
+                            height: $font-size-large;
+
+                            path {
+                                fill: $third;
+                            }
+                        }
+
+                        &:hover {
+                            color: $fourth;
+
+                            svg {
+
+                                path {
+                                    fill: $fourth;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__down-block {
+            width: 100%;
+            height: $padding * 3;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            // background-color: $third;
+            border-top: $border_thin solid $third;
+
+            .copyright {
+                width: 70%;
+                display: flex;
+                align-items: center;
+                font-size: $font-size-small;
+                color: $fourth;
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            .author {
+                width: 30%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+
+                p {
+                    font: {
+                        //family: $font-family-base;
+                        size: $font-size-small - 0.2;
+                    };
+                    line-height: 1.2;
+                    color: $fourth;
+                    display: inline-block;
+                    position: relative;
+                    text-align: right;
+                }
+
+                a {
+                    margin-left: 1rem;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+
+
+                    svg {
+                        width: auto;
+                        height: $padding * 1.5;
+                        display: block;
+                        stroke-width: 0;
+                        transition: all 0.2s;
+
+                        .redvus-logo__red {
+                            fill: $third;
+                            transition: 0.2s;
+                        }
+
+                        .redvus-logo__deepred {
+                            fill: $fourth;
+                        }
+
+                        &:hover {
+
+
+                            .redvus-logo__red {
+                                fill: $fourth;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // @include media($Medium) {
+            //     text-align: center;
+
+            //     .copyright {
+            //         width: 50%;
+            //         text-align: left;
+            //     }
+
+            //     .author {
+            //         width: 50%;
+            //     }
+            // }
+
+            // @include media($Small) {
+            //     width: 100%;
+            //     flex-direction: column;
+            //     margin: 1rem 0 0;
+            //     text-align: center;
+
+            //     .copyright {
+            //         width: 100%;
+            //         text-align: center;
+            //     }
+
+            //     .author {
+            //         width: 100%;
+            //         justify-content: center;
+            //         align-items: center;
+            //         text-align: center;
+            //         margin-top: 1rem;
+
+            //         p {
+            //             text-align: right;
+            //         }
+            //     }
+            // }
+        }
+    }
+
+    @include grid-media($XSmall) {
+
+        &-wrapper {
+            width: calc(100% - (#{$padding} * 2));
+            padding: $padding $padding ($headerMobileTopHeight + $padding) $padding;
+        }
+
+        &__top {
+            width: calc(100% - (#{$padding} * 2));
+            padding: 0 $padding;
+            text-align: center;
+
+            span {
+                line-height: 1;
+            }
+        }
+
+        &-container {
+
+            &__top-block {
+                flex-direction: column;
+            }
+
+            &__part {
+                width: 100%;
+                padding: $padding 0;
+                margin-right: 0;
+
+                &:last-child {
+                    width: 100%;
+                }
+            }
+
+            &__logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                margin-bottom: $padding;
+            }
+
+            &__links {
+                display: none;
+                visibility: hidden;
+            }
+
+            &__social {
+                display: flex;
+                padding-top: 0;
+
+                ul {
+                    justify-content: center;
+                }
+            }
+
+            &__adress {
+
+                p {
+                    text-align: center;
+                }
+            }
+
+            &__slogan {
+                text-align: center;
+                justify-content: center;
+            }
+
+            &__down-block {
+                height: inherit;
+                flex-direction: column;
+                padding-top: $padding;
+
+                .copyright {
+                    width: 100%;
+                    justify-content: center;
+                    text-align: center;
+                }
+
+                .author {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+/*=====  End of Footer  ======*/

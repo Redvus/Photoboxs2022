@@ -1,0 +1,90 @@
+/*=================================
+=            Preloader            =
+=================================*/
+
+body.noscroll {
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+#page_loading {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	opacity: 1;
+	z-index: 9999;
+
+	&.light {
+		background-color: $five;
+		color: #555;
+
+		.loader {
+			background-color: transparent;
+		}
+	}
+
+	@include grid-media($XSmall) {
+		height: 100%;
+	}
+}
+
+.loader {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	//margin: -2px 0 0 -190px;
+
+	&>div{
+		// animation-duration: 3s;
+		// animation-name: loader_width;
+		background-color: $five;
+		//background-image: linear-gradient(to right,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55);
+		background-size: 380px 100%;
+		height: 100%;
+		position: relative;
+
+		&>div{
+			width: 100%;
+			height: 64px;
+			position: absolute;
+			top: 100%;
+			transform: skew(45deg);
+			transform-origin: 0 0;
+		}
+	}
+
+	.nojs{
+		position: absolute;
+		width: 300px;
+		top: 50%;
+		left: 50%;
+		margin-left: -150px;
+		margin-top: 50px;
+		text-align: center;
+		font: 400 18px 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+	}
+}
+
+@keyframes loader_width {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 414px) {
+  .loader{width:320px; height:4px; margin:-2px 0 0 -160px;}
+  .loader>div{background-size: 320px 4px;}
+}
+@media all and (max-width: 320px) {
+  .loader{width:250px; height:4px; margin:-2px 0 0 -125px;}
+  .loader>div{background-size: 250px 4px;}
+}
+
+/*=====  End of Preloader  ======*/

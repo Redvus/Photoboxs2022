@@ -1,0 +1,108 @@
+body {
+    background-color: $primary;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--stopper {
+        background-image: url('images/acrbuild_stopper.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.center-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        width: 20rem;
+        height: auto;
+        animation: fadeIn 2s;
+
+        .arcbuild__black {
+            fill: $black; //black
+        }
+
+        .arcbuild__dark-gray {
+            fill: $dark-gray; //dark-gray
+        }
+
+        .arcbuild__middle-gray {
+            fill: $middle-gray; //middle-gray
+        }
+
+        .arcbuild__light-gray {
+            fill: $light-gray; //light-gray
+        }
+
+        .arcbuild__white {
+            fill: #fff; //white
+        }
+    }
+}
+
+h1 {
+    font-family: 'PF DinText Pro';
+    font-size: $font-size-h2;
+    text-align: center;
+    color: #fff;
+    margin-top: 2rem;
+    animation: fadeIn 2s;
+}
+
+p {
+    display: block;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 2s;
+}
+
+/*===============================
+=            Counter            =
+===============================*/
+
+.counter {
+    text-align: center;
+}
+
+ul {
+    margin-bottom: 4em;
+    padding: 0;
+}
+
+.chart {
+    display: inline-block;
+    width: 95px;
+    height: 95px;
+    margin: 0 10px;
+    vertical-align: top;
+    position: relative;
+    padding-top: 22px;
+    font-family: 'PlumbBoldC';
+    font-size: 1em;
+    color: #ffb819;
+}
+
+.chart span {
+    display: block;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+.chart canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/*=====  End of Counter  ======*/

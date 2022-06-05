@@ -1,0 +1,525 @@
+/*================================
+=            Variable            =
+================================*/
+
+$primary  : #7d2239;  //Бордовый
+$secondary: #243035;  //Черный
+$third    : #c4cccc;  //#da3458, #bab2b4
+$fourth   : #fff;
+$five     : #f0f0f0;
+$error    : #ff9015;
+$success  : #19d3c5;
+
+$error : $third;
+$success : $fourth;
+
+$border_thin: 0.1rem;
+$border_normal: 0.3rem;
+$border_bold: 0.6rem;
+
+$base-duration: 0.2s;
+$base-timing: 0.3s;
+
+/* Media
+-------------------------------------------------- */
+$main-grid: (
+    columns: 12,
+    gutter: 0
+);
+
+$second-grid: (
+    columns: 12,
+    gutter: 2rem
+);
+
+$third-grid: (
+    columns: 12,
+    gutter: 1rem
+);
+
+$imac27 : 2560px;
+$imac21 : 1920px;
+$cinema : 1680px;
+$pad_g : 1024px;
+$pad_v : 768px;
+$mobile : 570px;
+
+$XXLarge: (media: "(min-width: #{$imac21})");
+$XLarge: (media: "(min-width: #{$cinema}) and (max-width: #{$imac21})");
+$Large: (media: "(min-width: #{$pad_g}) and (max-width: #{$cinema})");
+$Medium: (media: "(max-width: #{$pad_g})");
+$XSmall: (media: "(max-width: #{$pad_v})");
+$Small: (media: "(max-width: #{$mobile})");
+$HSmall: (media: "(max-height: 420px)");
+
+/* End of Media
+-------------------------------------------------- */
+
+$padding     : 1rem;
+$wrapperWidth: $padding * 76;
+$wrapperWidthPad: $padding * 62;
+$wrapperWidthMobile: calc(100% - (#{$padding} * 2));
+
+/* Layout
+-------------------------------------------------- */
+%wrapperWidth {
+    width: $padding * 76;
+
+    @include grid-media($Medium) {
+        width: calc(100vw - (#{$padding} * 2));
+        padding: 0 $padding;
+    }
+
+    @include grid-media($XSmall) {
+        width: calc(100% - (#{$padding} * 2));
+    }
+}
+
+/* Header
+-------------------------------------------------- */
+$headerTopHeight: $padding * 2.5;
+$headerBottomHeight: $padding * 3;
+$headerLineHeight: $padding / 2;
+$headerHeight: calc(#{$headerTopHeight} + #{$headerBottomHeight} + #{$headerLineHeight});
+
+$headerHeightMobile: $padding;
+$headerHeightBottom: $padding;
+
+/* Nav
+-------------------------------------------------- */
+$colorTextActive: $fourth;
+$colorTextHover : $third;
+$navLiBackgroundActive: darken($primary, 7%);
+
+/* Page
+-------------------------------------------------- */
+$sectionTopHeight          : 20vmax;
+$sectionServicesTitleHeight: $padding * 6;
+$sectionServicesImageHeight: $padding * 6;
+$sectionServicesLiWidth    : $wrapperWidth / 3;
+$sectionServicesLiHeight   : $wrapperWidth / 2.5;
+
+$sectionServicesLiWidthPad : 100% / 2;
+
+$cardHoverBackground: lighten($third, 15%);  //lighten($primary, 60%)
+
+$inputHeight: $padding * 2.5;
+
+$structureLogoWidth: 20%;
+
+$sectionTopHeightMobile: 40vmax;
+
+/* News
+-------------------------------------------------- */
+$sectionNewsLiWidth : $wrapperWidth / 2;
+$sectionNewsLiHeight: $wrapperWidth / 5.5;
+
+$sectionNewsLiWidthPad : $wrapperWidthPad / 2;
+
+/* Mobile
+-------------------------------------------------- */
+$headerMobileTopHeight: $padding * 3;
+
+
+/*=====  End of Variable  ======*/
+
+
+/*=================================================
+=                   Row Machine                   =
+=================================================*/
+
+@mixin rowMachineBorder($numPerRow, $margin, $borderWidth) {
+    // width: calc((100% - ((#{$numPerRow} - 1) * #{$margin}) - ((#{$numPerRow} - 1) * (#{$borderWidth} * 2))) / #{$numPerRow});
+    // width: calc((100% / #{$numPerRow}) - (#{$borderWidth} * 2) - ((#{$margin} * (#{$numPerRow} - 1)) / #{$numPerRow}));
+    width: calc(((100% - (#{$margin} * (#{$numPerRow} - 1))) / #{$numPerRow}) - (#{$borderWidth} * 2));
+    // width: calc((100% - (#{$borderWidth} * 2) - ((#{$numPerRow} - 1) * #{$margin})) / #{$numPerRow});
+    display: inline-block;
+    border: $borderWidth solid $five;
+    // float: left;
+
+    &:nth-child(n) {
+        margin-bottom: $margin;
+        margin-right: $margin;
+        // margin-left: -(($numPerRow - 1) * 0.1rem);
+    }
+
+    // &:first-child {
+    // 	margin-left: 0;
+    // }
+
+    &:nth-of-type(#{$numPerRow}n) {
+        margin-right: 0;
+        // margin-left: 0;
+    }
+
+    // @include grid-media($Medium) {
+    // 	&:nth-child(n) {
+    // 		margin-right: 0;
+    // 	}
+    // }
+
+    // @include grid-media($Small) {
+    // 	&:nth-child(n) {
+    // 		margin-right: -5px;
+    // 	}
+    // }
+}
+
+@mixin rowMachine($numPerRow, $margin) {
+    width: calc((100% - ((#{$numPerRow} - 1) * #{$margin})) / #{$numPerRow});
+    // width: calc((100% - ((#{$numPerRow} / #{$numPerRow}) * #{$margin})) / #{$numPerRow}); //решение для fenom
+    display: inline-block;
+    // float: left;
+
+    &:nth-child(n) {
+        margin-bottom: $margin;
+        margin-right: $margin;
+        // margin-left: -(($numPerRow - 1) * 0.1rem);
+    }
+
+    // &:first-child {
+    // 	margin-left: 0;
+    // }
+
+    &:nth-of-type(#{$numPerRow}n) {
+        margin-right: 0;
+        // margin-bottom: 0;
+    }
+
+    // &:nth-of-type(calc(#{$numPerRow} + 1)n) {
+    //     margin-left: 0;
+    // }
+
+    // @include grid-media($Medium) {
+    // 	&:nth-child(n) {
+    // 		margin-right: 0;
+    // 	}
+    // }
+
+    // @include grid-media($Small) {
+    // 	&:nth-child(n) {
+    // 		margin-right: -5px;
+    // 	}
+    // }
+}
+
+@mixin rowMachinePadding($numPerRow, $padding) {
+    width: calc((100% - ((#{$numPerRow} - 1) * (#{$padding} / 0.8))) / #{$numPerRow});
+    // width: calc((100% - ((#{$numPerRow} / #{$numPerRow}) * #{$margin})) / #{$numPerRow}); //решение для fenom
+    display: inline-block;
+    padding: 0 $padding $padding 0;
+
+    &:nth-child(n) {
+        margin-bottom: 0;
+        margin-right: 0;
+    }
+
+    // &:first-child {
+    // 	margin-left: 0;
+    // }
+
+    // &:nth-of-type(#{$numPerRow}n) {
+    //     // margin-right: 0;
+    //     // margin-bottom: 0;
+    //     padding-right: 0;
+    // }
+
+    // &:nth-of-type(calc(#{$numPerRow} + 1)n) {
+    //     margin-left: 0;
+    // }
+
+    // @include grid-media($Medium) {
+    // 	&:nth-child(n) {
+    // 		margin-right: 0;
+    // 	}
+    // }
+
+    @include grid-media($Small) {
+        &:nth-child(n) {
+            width: calc((100% - ((#{$numPerRow} - 1) * (#{$padding} / 0.5))) / #{$numPerRow});
+            padding: $padding / 2;
+        }
+    }
+}
+
+/*============  End of Row Machine  =============*/
+
+/*=============================
+=            Fonts            =
+=============================*/
+
+@include font-face (
+    "PF DinDisplay Reg",
+    "fonts/PFDinDisplayPro-Reg/PFDinDisplayPro-Reg",
+    ("woff", "woff2")
+    ) {
+    font-style: normal;
+    font-weight: 400;
+}
+
+@include font-face (
+    "PF DinDisplay Bold",
+    "fonts/PFDinDisplayPro-Bold/PFDinDisplayPro-Bold",
+    ("woff", "woff2")
+    ) {
+    font-style: normal;
+    font-weight: 700;
+}
+
+// @include font-face (
+//     "si",
+//     "fonts/socicon/socicon",
+//     ("eot", "woff", "ttf", "svg")) {
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=PT+Mono&subset=cyrillic');
+
+$fa-font-path: 'fonts/';
+
+$primary-font:          $font-stack-helvetica;
+$heading-font:          "PF DinDisplay Bold";
+$heading-font-light:    "PF DinDisplay Reg";
+
+$body-font-color     : $secondary;
+
+$body-font-size      : 1rem !default;
+$body-font-weight    : normal !default;
+$body-line-height    : 1.4 !default;
+$heading-line-height : 1 !default;
+
+$heading-font-modular : 1vw !default;
+
+$bourbon: (
+    "modular-scale-base": $heading-font-modular,
+    "modular-scale-ratio": $major-third,
+);
+
+$font-size-base:    $body-font-size !default;
+$font-size-large:   $font-size-base + 0.2 !default; // ~18px
+$font-size-small:   $font-size-base - 0.2 !default; // ~14px
+
+$font-size-h1:      2.8rem !default; //calc(1rem + 2vmax) !default; // ~3rem 48px modular-scale(6)
+$font-size-h2:      calc(1rem + 0.9vmax) !default; // ~2.5rem 40px modular-scale(5)
+$font-size-h3:      calc(1rem + 0.7vmax) !default; // ~2rem 33px
+$font-size-h4:      calc(1rem + 0.15vmax) !default; // ~1.728rem 28px
+$font-size-h5:      modular-scale(0) !default; // ~1.44rem 23px
+$font-size-h6:      modular-scale(-1) !default; // ~1.2rem 19px
+
+%px {
+    font: {
+        family: $primary-font;
+        weight: $body-font-weight;
+        size: $font-size-base;
+    };
+    line-height: $body-line-height;
+    color: $body-font-color;
+    //text-indent: 1rem;
+
+    @include grid-media($XXLarge) {
+        font-size: modular-scale(3);
+    }
+
+    @include grid-media($XLarge) {
+        font-size: $font-size-base;
+    }
+
+    @include grid-media($Medium) {
+        font-size: $font-size-large;
+    }
+
+    @include grid-media($XSmall) {
+        font-size: $font-size-large;
+    }
+
+    @include grid-media($Small) {
+        font-size: $font-size-large;
+    }
+}
+
+%hx {
+    font: {
+        family: $heading-font;
+        // weight: 400;
+    };
+    //letter-spacing: 0.04em;
+    line-height: $heading-line-height;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/*=====  End of Fonts  ======*/
+
+
+/*==============================
+=            Layout            =
+==============================*/
+
+body {
+    @extend %px;
+    margin: 0;
+    background-color: $fourth;
+}
+
+h1 {
+    @extend %hx;
+    font-size: $font-size-h1;
+    color: $secondary;
+    margin: ($padding * 2) 0 0;
+    line-height: 0.5;
+    //text-align: center;
+    //transition: all .3s;
+
+    @include grid-media($XSmall) {
+        font-size: calc(#{$font-size-base} + 1.5vmax);
+        line-height: 1;
+    }
+}
+
+h2 {
+    @extend %hx;
+    font-size: $font-size-h2;
+    color: $secondary;
+}
+
+h3 {
+    @extend %hx;
+    font-size: $font-size-h3;
+    color: $secondary;
+}
+
+h4 {
+    @extend %hx;
+    font-size: $font-size-h4;
+    color: $secondary;
+}
+
+h5 {
+    @extend %hx;
+    font-size: $font-size-h5;
+    color: $secondary;
+}
+
+h6 {
+    @extend %hx;
+    font-size: $font-size-h6;
+    color: $secondary;
+}
+
+.large-text {
+    font-size: $font-size-large;
+}
+
+.small-text {
+    font-size: $font-size-small;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+
+        @include grid-media($Medium) {
+            font-size: $font-size-large;
+        }
+    }
+}
+
+a {
+    color: $primary;
+    text-decoration: none;
+    transition: color $base-duration;
+    outline: none;
+
+    // &:active,
+    // &:focus,
+    // &:hover {
+    //     //color: $action-color;
+    // }
+}
+
+i {
+    transition: color $base-duration;
+}
+
+svg {
+    transition: all $base-duration;
+}
+
+%input {
+    outline: none;
+    margin-bottom: 1rem;
+    font-family: $primary-font;
+    font-size: $font-size-base;
+    // text-align: center;
+    border: 0.15rem solid $primary;
+    border-radius: 0;
+    background-color: transparent;
+    color: $secondary;
+    transition: all 0.3s;
+    -webkit-appearance: none;
+
+    &:focus {
+        background-color: $fourth;
+        border-color: $secondary;
+    }
+
+    &:focus::-webkit-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-moz-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-ms-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: $secondary;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: $secondary;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: $secondary;
+        opacity: 1;
+    }
+
+    &::-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: $secondary;
+    }
+}
+
+select {
+    // A reset of styles, including removing the default dropdown arrow
+    appearance: none;
+    // Additional resets for further consistency
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+/*=====  End of Layout  ======*/
+

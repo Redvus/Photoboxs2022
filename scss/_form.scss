@@ -1,0 +1,339 @@
+/*===================================
+=            Contact Form            =
+===================================*/
+
+.form-ajax {
+	width: calc(100% - 0.3rem);
+	margin: 0;
+	//margin: 30px 20% 150px 20%;
+	float: left;
+
+	&__input {
+
+		.f-icon {
+			width: $inputHeight + 0.65;
+			height: $inputHeight + 0.2;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			background-color: $primary;
+			// margin-top: 0.15rem;
+			// border-top-left-radius: $inputHeight / 2;
+			// border-bottom-left-radius: $inputHeight / 2;
+			z-index: -1;
+
+			&:before {
+				font-family: 'fontawesome';
+				font-size: $font-size-small;
+				font-weight: normal;
+				color: $fourth;
+				position: relative;
+			}
+
+			&--person {
+
+				&:before {
+					content: "\f007";
+				}
+			}
+
+			&--phone {
+
+				&:before {
+					content: "\f095";
+				}
+			}
+
+			&--mail {
+
+				&:before {
+					content: "\f003";
+				}
+			}
+		}
+	}
+
+	%input {
+		outline: none;
+		margin-bottom: 1rem;
+		font-family: $primary-font;
+		font-size: $font-size-base;
+		// text-align: center;
+		border: 0.15rem solid $primary;
+		// border-top-left-radius: $inputHeight / 2;
+		// border-bottom-left-radius: $inputHeight / 2;
+		// border-top-right-radius: $inputHeight / 2;
+		// border-bottom-right-radius: $inputHeight / 2;
+		background-color: transparent;
+		color: $primary;
+		transition: all 0.3s;
+
+		&:focus {
+			background-color: $fourth;
+			border-color: $secondary;
+		}
+
+		&:focus::-webkit-input-placeholder {
+			opacity: 0;
+			transition: all 0.3s;
+		}
+
+		&:focus::-moz-placeholder {
+			opacity: 0;
+			transition: all 0.3s;
+		}
+
+		// &:focus::-ms-input-placeholder {
+		// 	opacity: 0;
+		// 	transition: all 0.3s;
+		// }
+
+		&::-webkit-input-placeholder {
+			/* WebKit browsers */
+			color: $primary;
+		}
+
+		&::-moz-placeholder {
+			/* Mozilla Firefox 4 to 18 */
+			color: $primary;
+			opacity: 1;
+		}
+
+		// &::-ms-input-placeholder {
+		// 	/* Internet Explorer 10+ */
+		// 	color: $primary;
+		// }
+	}
+
+	input[type='text'],
+	input[type='email'],
+	input[type='number'] {
+		width: calc(100% - 1rem - (#{$inputHeight} + 1.5rem));
+		height: $inputHeight;
+		padding: 0 1rem 0 ($inputHeight + 1.5rem);
+		@extend %input;
+	}
+
+	select {
+		width: calc(100% + 0.3rem);
+		height: calc(#{$inputHeight} - 0.3rem);
+		padding: 0;
+		@extend %input;
+	}
+
+	textarea {
+		width: calc(100% - 2rem);
+		height: $inputHeight * 2;
+		padding: 0.5rem 1rem;
+		@extend %input;
+	}
+
+	&__button {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: ($padding * 2) 0;
+
+		.submit-form {
+			width: 40%;
+			height: $inputHeight + 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: transparent;
+			// padding: 0.7rem 1.4rem 0.7rem 0;
+			// border: 0.15rem solid $third;
+			text-align: center;
+			color: $fourth;
+			font-size: $font-size-base;
+			line-height: $font-size-base;
+			text-transform: uppercase;
+			text-decoration: none;
+			// border-top-left-radius: $inputHeight / 2;
+			// border-bottom-left-radius: $inputHeight / 2;
+			// border-top-right-radius: $inputHeight / 2;
+			// border-bottom-right-radius: $inputHeight / 2;
+			outline: none;
+			border: none;
+			transition: all 0.3s;
+			cursor: pointer;
+
+			// &:before {
+			// 	font-family: 'fontawesome';
+			// 	color: $primary;
+			// 	font-size: $font-size-base;
+			// 	line-height: $font-size-base;
+			// 	margin-right: 7px;
+			// 	opacity: 0;
+			// 	transition: all 0.3s;
+			// 	transform: scale(0);
+			// }
+
+			&:hover {
+				// background-color: lighten($primary, 20%);
+				// color: $fourth;
+				//height: 46px;
+				// padding: 0.7rem 0.7rem;
+				//-webkit-transform: translateY(-3px);
+				//transform: translateY(-3px);
+
+				// &:before {
+				// 	opacity: 1;
+				// 	transform: scale(1);
+				// }
+
+				&.reset {
+					background-color: darken($five, 15%);
+				}
+
+				&.submit {
+					background-color: $navLiBackgroundActive;
+				}
+			}
+
+			&--hidden {
+				opacity: 0.5;
+
+				&:hover {
+					background: $primary;
+				}
+			}
+
+			&.reset {
+				background-color: darken($five, 10%);
+
+				// &:before {
+				// 	content: "\f12d";
+				// }
+			}
+
+			&.submit {
+				background-color: $primary;
+
+				// &:before {
+				// 	content: "\f1d8";
+				// }
+			}
+		}
+	}
+
+	.checkbox {
+		display: inline-block;
+		position: relative;
+		// top: 1px;
+		width: 20px;
+		height: 20px;
+		border: 0.15rem solid $primary;
+		background-color: #fff;
+		transition: background 150ms ease;
+		cursor: pointer;
+		margin-top: -0.3rem;
+
+		// &:hover {
+		// 	// background: rgba(33, 16, 118, .5);
+		// }
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 1px;
+			left: 5px;
+			width: 6px;
+			height: 12px;
+			opacity: 0;
+			transform: rotate(45deg) scale(0);
+			border-right: 2px solid #fff;
+			border-bottom: 2px solid #fff;
+			transition: all 325ms ease;
+		}
+	}
+
+	input[type=checkbox] {
+		display: none;
+		position: relative;
+		top: 1px;
+		width: 20px;
+		height: 20px;
+		border: 2px solid $primary;
+		transition: background 150ms ease;
+		cursor: pointer;
+		box-sizing: border-box;
+		padding: 0;
+
+		&:checked {
+			&~.checkbox {
+				border-color: transparent;
+				background: $primary;
+				animation: wiggle 400ms ease;
+
+				&:after {
+					opacity: 1;
+					transform: rotate(45deg) scale(1);
+				}
+			}
+
+			&~.checklist-item__title {
+				text-decoration: line-through;
+				transition: all 175ms ease;
+				opacity: .5;
+			}
+		}
+	}
+
+	@keyframes wiggle {
+		from {
+			transform: scale(1, 1);
+		}
+
+		30% {
+			transform: scale(1.25, .75);
+		}
+
+		40% {
+			transform: scale(.75, 1.25);
+		}
+
+		50% {
+			transform: scale(1.15, .85);
+		}
+
+		65% {
+			transform: scale(.95, 1.05);
+		}
+
+		75% {
+			transform: scale(1.05, .95);
+		}
+
+		to {
+			transform: scale(1, 1);
+		}
+	}
+
+	&__agreement {
+		width: 100%;
+		min-height: 1rem;
+		display: flex;
+		// justify-content: center;
+		align-items: center;
+		font-size: $font-size-small;
+		margin: $padding 0;
+
+		p {
+			margin-left: 1rem;
+			margin-top: 0.4rem;
+
+			// a {
+			// 	// font-family: $bold;
+			// }
+		}
+	}
+}
+
+.g-recaptcha {
+	transform: scale(0.87);
+	transform-origin: 0px 0px 0px;
+}
+
+/*=====  End of Conact Form  ======*/

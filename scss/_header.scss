@@ -1,0 +1,278 @@
+/*=============================================
+=                   Header                   =
+=============================================*/
+
+.header {
+    width: 100%;
+    height: $headerHeight;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9990;
+
+    &__back {
+        width: auto;
+        height: 13vh;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+
+        svg {
+            width: auto;
+            height: 100%;
+            display: block;
+
+            polygon {
+                background: linear-gradient(to left, $third 0%, $five 100%);
+            }
+        }
+    }
+
+    &__logo {
+        width: $padding * 9.25;
+        height: $padding * 3;
+        display: block;
+        position: relative;
+        float: left;
+        background-color: $fourth;
+        left: 0;
+        top: 0;
+        padding: 0 $padding;
+
+        svg {
+            width: auto;
+            height: $padding * 3;
+            display: block;
+        }
+
+        &--red {
+            fill: $primary;
+        }
+
+        &--black {
+            fill: $secondary;
+        }
+    }
+
+    &__menu {
+        width: calc(100% - (#{$padding} * 9.25) - (#{$padding} * 2));
+        height: $padding * 3;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        right: 0;
+    }
+
+    /* Header Mobile
+    -------------------------------------------------- */
+
+    &-mobile {
+
+        &__top {
+            width: 100%;
+            height: $headerMobileTopHeight;
+            position: fixed;
+            flex-direction: row;
+            top: 0;
+            left: 0;
+            background-color: $primary;
+            border-bottom: $border-normal solid $fourth;
+            display: none;
+            visibility: hidden;
+            z-index: 9997;
+        }
+
+        &__bottom {
+            width: 100%;
+            height: $headerMobileTopHeight;
+            position: fixed;
+            flex-direction: row;
+            bottom: 0;
+            left: 0;
+            background-color: $primary;
+            border-top: $border-normal solid $fourth;
+            display: none;
+            visibility: hidden;
+            z-index: 9997;
+        }
+
+        &__logo {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: auto;
+                height: 60%;
+                display: block;
+            }
+
+            &--red {
+                fill: $fourth;
+            }
+
+            &--black {
+                fill: $third;
+            }
+        }
+
+        &__nav {
+            width: calc(100% - #{$headerMobileTopHeight} - (#{$padding} * 2) - #{$border-normal});
+            height: calc(100vh - (#{$headerMobileTopHeight} * 2) - (#{$padding} * 2));
+            position: fixed;
+            top: $headerMobileTopHeight;
+            right: 0;
+            background-color: $fourth;
+            padding: $padding;
+            border-left: $border-normal solid $primary;
+            z-index: -1;
+            display: none;
+            visibility: hidden;
+            transform: translateX(100%);
+
+            &-mask {
+                width: 100%;
+                height: calc(100vh - (#{$headerMobileTopHeight} * 2));
+                position: fixed;
+                top: $headerMobileTopHeight;
+                left: 0;
+                background-color: rgba($third, 0.8);
+                z-index: -1;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &-button {
+                width: $headerMobileTopHeight;
+                height: $headerMobileTopHeight;
+                display: none;
+                visibility: hidden;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                top: 0;
+                right: 0;
+                cursor: pointer;
+                z-index: 9998;
+
+                // &:hover {
+
+                // 	.nav-button-line {
+
+                // 		&__top {
+                // 			transform: translate(30%, 200%) rotate(135deg) scaleX(0.6);
+                // 		}
+
+                // 		&__middle {
+                // 			transform: rotate(180deg);
+                // 		}
+
+                // 		&__bottom {
+                // 			transform: translate(30%, -200%) rotate(-135deg) scaleX(0.6);
+                // 		}
+                // 	}
+                // }
+            }
+
+            &-line {
+                width: 50%;
+                height: $border_thin + 0.05;
+                background-color: $fourth;
+                position: absolute;
+                // transition: transform 0.3s;
+
+                &__top {
+                    transform: translate(0, -290%);
+                    transform-origin: 50% 50%;
+                }
+
+                &__middle {
+                    transform-origin: 50% 50%;
+                }
+
+                &__bottom {
+                    transform: translate(0, 290%);
+                    transform-origin: 50% 50%;
+                }
+            }
+        }
+
+        &__social {
+            width: calc((100% / 3) * 2);
+            height: 100%;
+            flex-direction: row;
+            display: none;
+            visibility: hidden;
+
+            li {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                i {
+                    color: $fourth;
+                }
+            }
+        }
+
+        &__phone {
+            width: calc(100% / 3);
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            display: none;
+            visibility: hidden;
+
+            i {
+                color: $fourth;
+            }
+        }
+    }
+
+    /* End of Header Mobile
+    -------------------------------------------------- */
+
+    @include grid-media($XSmall) {
+        display: none;
+        visibility: hidden;
+
+        &-mobile {
+
+            &__top,
+            &__bottom {
+                display: flex;
+                visibility: visible;
+            }
+
+            &__nav {
+                display: block;
+                visibility: visible;
+
+                &-mask {
+                    display: block;
+                    visibility: visible;
+                }
+
+                &-button {
+                    display: flex;
+                    visibility: visible;
+                }
+            }
+
+            &__social,
+            &__phone {
+                display: flex;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+/*============  End of Header  =============*/

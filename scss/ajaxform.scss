@@ -1,0 +1,32 @@
+/* @group Ajax form */
+/* ========================================================================== */
+// @import url('../assets/components/ajaxform/css/lib/jquery.jgrowl.min.css');
+
+.ajax_form {
+
+	// .error {
+	// 	//width: 100%;
+	// 	//text-align: center;
+	// }
+
+	span.error {
+		display: block;
+		color: $third !important;
+		margin-top: -0.5rem;
+		margin-bottom: 0.5rem;
+		font-size: 0.8rem;
+	}
+}
+
+.af-message-success {
+	background-color: #5cb85c !important;
+}
+
+.af-message-error {
+	background-color: #d9534f !important;
+}
+
+.af-message-info {
+	background-color: #5bc0de !important;
+}
+/* $end  */
