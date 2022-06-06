@@ -4,16 +4,16 @@
 
 .nav-main {
 	width: 100%;
-	height: $headerBottomHeight;
+	height: 100%;
 	display: flex;
 	flex-direction: row-reverse;
-	position: absolute;
+	position: relative;
 	top: 0;
 	right: 0;
 
 	&__menu {
 		// width: 100%;
-		height: $headerBottomHeight;
+		height: 100%;
 		display: flex;
 		flex-direction: row;
 
@@ -24,14 +24,14 @@
 
 			a {
 				width: calc(100% - (#{$padding} * 2));
-				height: $headerBottomHeight;
+				height: 100%;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				font-family: $heading-font-light;
 				font-size: $font-size-large;
-				color: $fourth;
-				padding: 0 $padding;
+				color: $colorTextActive;
+				margin: 0 $padding;
 
 				&.submenu-open {
 					// background-color: $colorCategoryTitle;
@@ -59,11 +59,12 @@
 			// }
 
 			&.active {
-				background-color: $navLiBackgroundActive;
 
-				// a {
-				// 	color: $fourth;
-				// }
+
+				a {
+					// height: calc(100% - #{$border-bold});
+					border-bottom: $border-bold solid $primary;
+				}
 			}
 
 			// &:last-child {
@@ -78,12 +79,12 @@
 				&.active {
 
 					a {
-						color: $fourth;
+						color: $colorTextHover;
 					}
 				}
 
 				a {
-					color: $third;
+					color: $colorTextHover;
 				}
 			}
 		}
@@ -98,12 +99,12 @@
 					display: block;
 					float: left;
 					position: relative;
-					margin-right: $padding / 5;
+					margin-right: $padding / 3;
 					// transform: translateY(100%);
 
 					#navCrossVert {
 						fill: none;
-						stroke: $fourth;
+						stroke: $colorTextActive;
 						stroke-width: 0.2rem;
 						transform-origin: 50% 50%;
 						transition: transform .2s;
@@ -111,7 +112,7 @@
 
 					#navCrossHorz {
 						fill: none;
-						stroke: $fourth;
+						stroke: $colorTextActive;
 						stroke-width: 0.2rem;
 						transform-origin: 50% 50%;
 						transition: transform .2s;
@@ -189,12 +190,12 @@
 					svg#navCross {
 
 						#navCrossVert {
-							stroke: $third;
+							stroke: $colorTextHover;
 							transform: rotate(90deg);
 						}
 
 						#navCrossHorz {
-							stroke: $third;
+							stroke: $colorTextHover;
 							transform: rotate(360deg);
 						}
 					}

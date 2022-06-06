@@ -38,10 +38,10 @@
 
 		&-top {
 			width: auto;
-			height: 13vh;
+			height: 13.4vh;
 			display: block;
 			position: fixed;
-			top: 0;
+			top: -($padding * 2);
 			right: 0;
 			z-index: 1;
 
@@ -49,17 +49,13 @@
 				width: auto;
 				height: 100%;
 				display: block;
-				filter: drop-shadow((-$padding) $padding $padding $fourth);
-
-				polygon {
-					background: linear-gradient(to left, $third 0%, $five 100%);
-				}
+				// filter: drop-shadow((-$padding) $padding $padding $fourth);
 			}
 		}
 
 		&-bottom {
 			width: auto;
-			height: 86.5vh;
+			height: 89vh;
 			display: block;
 			position: fixed;
 			bottom: 0;
@@ -70,11 +66,7 @@
 				width: auto;
 				height: 115%;
 				display: block;
-				filter: drop-shadow((-$padding) (-$padding) $padding $fourth);
-
-				polygon {
-					background: linear-gradient(to left, $third 0%, $five 100%);
-				}
+				// filter: drop-shadow((-$padding) (-$padding) $padding $fourth);
 			}
 		}
 	}

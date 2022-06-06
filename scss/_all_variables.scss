@@ -2,7 +2,7 @@
 =            Variable            =
 ================================*/
 
-$primary  : #7d2239;  //Бордовый
+$primary  : #4e5766;  //Бордовый
 $secondary: #243035;  //Черный
 $third    : #c4cccc;  //#da3458, #bab2b4
 $fourth   : #fff;
@@ -15,7 +15,7 @@ $success : $fourth;
 
 $border_thin: 0.1rem;
 $border_normal: 0.3rem;
-$border_bold: 0.6rem;
+$border_bold: 0.7rem;
 
 $base-duration: 0.2s;
 $base-timing: 0.3s;
@@ -80,15 +80,15 @@ $wrapperWidthMobile: calc(100% - (#{$padding} * 2));
 $headerTopHeight: $padding * 2.5;
 $headerBottomHeight: $padding * 3;
 $headerLineHeight: $padding / 2;
-$headerHeight: calc(#{$headerTopHeight} + #{$headerBottomHeight} + #{$headerLineHeight});
+$headerHeight: calc(#{$headerTopHeight} + #{$headerBottomHeight});
 
 $headerHeightMobile: $padding;
 $headerHeightBottom: $padding;
 
 /* Nav
 -------------------------------------------------- */
-$colorTextActive: $fourth;
-$colorTextHover : $third;
+$colorTextActive: $primary;
+$colorTextHover : $secondary;
 $navLiBackgroundActive: darken($primary, 7%);
 
 /* Page
