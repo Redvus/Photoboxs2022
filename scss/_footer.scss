@@ -7,402 +7,299 @@ $footer-grid: (
 );
 
 .footer {
-    $base-spacing: 2em !default;
-    $action-color: #477DCA !default;
-    $medium-screen: 40em !default;
-    $large-screen: 53.75em !default;
-    $footer-background: $primary;
-    $footer-color: white;
-    $footer-link-color: transparentize($footer-color, 0.6);
-    $footer-disclaimer-color: transparentize($footer-color, 0.6);
-
-    $footer-height-block: 50px;
-
-    background: $footer-background;
+    width: 60rem;
+    min-height: $headerHeight / 2;
     display: block;
-    width: 100%;
-    min-height: 10vh;
     position: relative;
+    // padding: 0 $padding;
+    margin: 0 auto;
+    padding: ($padding / 2) 0 ($padding / 3);
     bottom: 0;
-    color: $fourth;
-    z-index: 0;
-
-    // @include media($XSmall) {
-    //     padding-bottom: 60px;
-    // }
-
-    // @include media($Small) {
-    //     padding-bottom: 60px;
-    // }
-
-    &__top {
-        width: 100%;
-        height: $padding * 4;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $third;
-
-        span {
-            font-family: $heading-font;
-            font-size: $font-size-h2;
-            color: $fourth;
-
-            a {
-                color: $fourth;
-
-                &:hover {
-                    color: $primary;
-                }
-            }
-        }
-    }
-
-    &-wrapper {
-        @extend %wrapperWidth;
-        height: 100%;
-        display: block;
-        position: relative;
-        margin: 0 auto;
-    }
+    left: 0;
+    font-size: $font-size-small;
+    background-color: $fourth;
+    color: $primary;
+    z-index: 9000;
 
     &-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
 
-        &__top-block {
+        &__top {
             width: 100%;
-            height: 100%;
+            // min-height: $headerHeight / 2;
             display: flex;
-            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            // padding: ($padding / 4) 0;
+            // border-bottom: $border_normal solid $secondary;
         }
 
-        &__part {
-            width: calc((100% / 4) - (#{$padding} * 2));
-            height: 100%;
+        &__bottom {
+            width: 100%;
+            min-height: $headerHeight / 1.5;
             display: flex;
             flex-direction: column;
-            position: relative;
-            padding: ($padding * 2) 0;
-            margin-right: $padding * 2;
-
-            &:last-child {
-                width: calc((100% / 4));
-                margin-right: 0;
-            }
+            align-items: center;
+            padding: 0 0 1rem;
         }
 
         &__logo {
-            width: 100%;
-            margin-bottom: $padding * 2;
+            width: $padding;
+            height: auto;
+            display: block;
 
-            svg {
-                width: auto;
-                height: $padding * 5;
+            a {
+                width: 100%;
+                height: 100%;
                 display: block;
-            }
 
-            &--red {
-                fill: $fourth;
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
             }
-
-            &--black {
-                fill: $third;
-            }
-
         }
 
-        &__adress {
+        &__nav {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
 
-            p {
-                text-align: left;
+            ul {
+                display: flex;
+                flex-direction: row;
+                // margin-bottom: 1rem;
+
+                li {
+                    margin-right: 0.5rem;
+
+                    a {
+                        font-size: $font-size-small;
+                        color: $primary;
+                    }
+
+                    &:after {
+                        content: "|";
+                        margin-left: 0.5rem;
+                    }
+
+                    // &:first-child {
+                    //     margin-left: 0;
+                    // }
+
+                    &:last-child {
+                        margin-right: 0;
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+
+                        a {
+                            color: $third;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__link {
+            width: 20%;
+            // height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            ul {
+                // width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                li {
+                    width: auto;
+                    margin-right: 0.5rem;
+                    // margin-bottom: 0.5rem;
+
+                    a, img {
+                        width: auto;
+                        height: $headerHeight / 2;
+                        display: block;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
             }
 
-            i {
-                color: $third;
+            &-metrika {
+                width: 88px;
+                height: 31px;
+                display: inline-block;
+                background-color: $third;
                 margin-right: $padding / 2;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &__copyright {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        &__author {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: right;
+
+            span {
+                width: auto;
+                // height: $headerHeight / 3;
+                font: {
+                    //family: $font-family-base;
+                    size: $font-size-small - 0.2;
+                };
+                line-height: 1;
+                color: $primary;
+                display: inline-block;
             }
 
             a {
-                color: $fourth;
+                width: auto;
+                height: $padding * 1.3;
+                margin-left: 1rem;
+                // margin-top: -0.5rem;
+                display: inline-block;
 
-                &:hover {
-                    color: $third;
-                }
-            }
-        }
+                svg {
+                    width: auto;
+                    height: 100%;
+                    transition: all 0.2s;
 
-        &__slogan {
-            height: $padding * 3;
-            display: flex;
-            align-items: center;
-            font-family: $heading-font;
-            font-size: $font-size-large;
-            text-transform: uppercase;
-            color: $fourth;
-        }
-
-        &__links {
-            padding-top: $padding * 6;
-
-
-            h4 {
-                text-align: right;
-                color: $fourth;
-            }
-
-            ul {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                text-align: right;
-
-                li {
-
-                    a {
-                        color: $third;
-
-                        &:hover {
-                            color: $fourth;
-                        }
+                    .redvus-logo__red {
+                        fill: $third;
                     }
-                }
-            }
-        }
 
-        &__social {
-            padding-top: $padding * 6;
-
-            ul {
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-
-                li {
-                    margin-left: $padding;
-
-                    a {
-                        font-size: $font-size-large;
-                        color: $third;
-
-                        svg {
-                            height: $font-size-large;
-
-                            path {
-                                fill: $third;
-                            }
-                        }
-
-                        &:hover {
-                            color: $fourth;
-
-                            svg {
-
-                                path {
-                                    fill: $fourth;
-                                }
-                            }
-                        }
+                    .redvus-logo__deepred {
+                        fill: $primary;
                     }
-                }
-            }
-        }
 
-        &__down-block {
-            width: 100%;
-            height: $padding * 3;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            // background-color: $third;
-            border-top: $border_thin solid $third;
-
-            .copyright {
-                width: 70%;
-                display: flex;
-                align-items: center;
-                font-size: $font-size-small;
-                color: $fourth;
-
-                p {
-                    margin: 0;
-                }
-            }
-
-            .author {
-                width: 30%;
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                align-items: center;
-
-                p {
-                    font: {
-                        //family: $font-family-base;
-                        size: $font-size-small - 0.2;
-                    };
-                    line-height: 1.2;
-                    color: $fourth;
-                    display: inline-block;
-                    position: relative;
-                    text-align: right;
-                }
-
-                a {
-                    margin-left: 1rem;
-                    display: flex;
-                    align-items: center;
-                    position: relative;
-
-
-                    svg {
-                        width: auto;
-                        height: $padding * 1.5;
-                        display: block;
-                        stroke-width: 0;
-                        transition: all 0.2s;
+                    &:hover {
 
                         .redvus-logo__red {
-                            fill: $third;
-                            transition: 0.2s;
-                        }
-
-                        .redvus-logo__deepred {
-                            fill: $fourth;
-                        }
-
-                        &:hover {
-
-
-                            .redvus-logo__red {
-                                fill: $fourth;
-                            }
+                            fill: $primary;
                         }
                     }
                 }
             }
+        }
+    }
 
-            // @include media($Medium) {
-            //     text-align: center;
+    &-short {
+        width: calc(100% - (#{$padding} * 2) - (100% / 3));
+        left: calc(100% / 3);
 
-            //     .copyright {
-            //         width: 50%;
-            //         text-align: left;
-            //     }
+        .footer-container__top {
+            flex-direction: column;
+        }
 
-            //     .author {
-            //         width: 50%;
-            //     }
-            // }
-
-            // @include media($Small) {
-            //     width: 100%;
-            //     flex-direction: column;
-            //     margin: 1rem 0 0;
-            //     text-align: center;
-
-            //     .copyright {
-            //         width: 100%;
-            //         text-align: center;
-            //     }
-
-            //     .author {
-            //         width: 100%;
-            //         justify-content: center;
-            //         align-items: center;
-            //         text-align: center;
-            //         margin-top: 1rem;
-
-            //         p {
-            //             text-align: right;
-            //         }
-            //     }
-            // }
+        .footer-container__nav,
+        .footer-container__link {
+            width: 100%;
         }
     }
 
     @include grid-media($XSmall) {
-
-        &-wrapper {
-            width: calc(100% - (#{$padding} * 2));
-            padding: $padding $padding ($headerMobileTopHeight + $padding) $padding;
-        }
-
-        &__top {
-            width: calc(100% - (#{$padding} * 2));
-            padding: 0 $padding;
-            text-align: center;
-
-            span {
-                line-height: 1;
-            }
-        }
+        width: calc(100% - (#{$headerHeight} / 2));
+        padding: 0 ($headerHeight / 4) $headerHeight;
+        left: 0;
 
         &-container {
 
-            &__top-block {
+            // &__nav {
+            //     // display: none;
+            //     // visibility: hidden;
+
+            //     // ul {
+            //     //     flex-direction: column;
+
+            //     //     li {
+
+            //     //         &:after {
+            //     //             display: none;
+            //     //             visibility: hidden;
+            //     //         }
+            //     //     }
+            //     // }
+            // }
+
+            // &__top {
+            //     flex-direction: column;
+            // }
+
+            &__link {
+                width: 50%;
+            }
+
+            &__bottom {
                 flex-direction: column;
             }
 
-            &__part {
+            &__copyright,
+            &__author {
                 width: 100%;
-                padding: $padding 0;
-                margin-right: 0;
+                // margin-bottom: $headerHeight / 4;
+                // text-align: right;
+            }
+        }
 
-                &:last-child {
-                    width: 100%;
-                }
+        &-short {
+            width: calc(100% - (#{$headerHeight} / 2));
+            padding: 0 ($headerHeight / 4) $headerHeight;
+            left: 0;
+
+            .footer-container__top {
+                flex-direction: row;
             }
 
-            &__logo {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                margin-bottom: $padding;
+            .footer-container__nav,
+            .footer-container__link {
+                width: 50%;
             }
+        }
+    }
 
-            &__links {
+    @include grid-media($Small) {
+        width: calc(100% - (#{$padding} * 2));
+        padding: 0 $padding ($headerHeightMobile + $padding);
+
+        &-container {
+
+            &__nav {
                 display: none;
                 visibility: hidden;
-            }
-
-            &__social {
-                display: flex;
-                padding-top: 0;
-
-                ul {
-                    justify-content: center;
-                }
-            }
-
-            &__adress {
-
-                p {
-                    text-align: center;
-                }
-            }
-
-            &__slogan {
-                text-align: center;
-                justify-content: center;
-            }
-
-            &__down-block {
-                height: inherit;
-                flex-direction: column;
-                padding-top: $padding;
-
-                .copyright {
-                    width: 100%;
-                    justify-content: center;
-                    text-align: center;
-                }
-
-                .author {
-                    width: 100%;
-                    justify-content: center;
-                }
             }
         }
     }

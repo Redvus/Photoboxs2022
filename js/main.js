@@ -30,22 +30,22 @@
             // pinType: document.querySelector(".wrapper").style.transform ? "transform" : "fixed"
         });
 
-        gsap.from(".wrapper-line", {
-            scrollTrigger: {
-                trigger: ".wrapper-line",
-                scroller: ".wrapper",
-                scrub: true,
-                start: "0 0",
-                end: () => `+=${document.querySelector(".wrapper").offsetHeight - window.innerHeight}`
-                // markers: {
-                // 	startColor: "#fff",
-                // 	endColor: "#fff"
-                // }
-            },
-            scaleY: 0,
-            transformOrigin: "0 0",
-            ease: "none"
-        });
+        // gsap.from(".wrapper-line", {
+        //     scrollTrigger: {
+        //         trigger: ".wrapper-line",
+        //         scroller: ".wrapper",
+        //         scrub: true,
+        //         start: "0 0",
+        //         end: () => `+=${document.querySelector(".wrapper").offsetHeight - window.innerHeight}`
+        //         // markers: {
+        //         // 	startColor: "#fff",
+        //         // 	endColor: "#fff"
+        //         // }
+        //     },
+        //     scaleY: 0,
+        //     transformOrigin: "0 0",
+        //     ease: "none"
+        // });
 
         ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
         ScrollTrigger.refresh();
@@ -173,20 +173,16 @@
     /*============  End of Magnific  =============*/
 
     function initPage() {
-
+        scrollSmooth();
     }
 
     function initPageMobile() {
 
-
     }
 
     if (document.body.clientWidth > 768 || screen.width > 768) {
-
         initPage();
-
     } else {
-
         initPageMobile();
     }
 

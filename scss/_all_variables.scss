@@ -2,9 +2,9 @@
 =            Variable            =
 ================================*/
 
-$primary  : #4e5766;  //Бордовый
+$primary  : #4E5766;  //Графитовый
 $secondary: #243035;  //Черный
-$third    : #c4cccc;  //#da3458, #bab2b4
+$third    : lighten($primary, 40%);  //#c4cccc
 $fourth   : #fff;
 $five     : #f0f0f0;
 $error    : #ff9015;
@@ -17,7 +17,7 @@ $border_thin: 0.1rem;
 $border_normal: 0.3rem;
 $border_bold: 0.7rem;
 
-$base-duration: 0.2s;
+$base-duration: 0.3s;
 $base-timing: 0.3s;
 
 /* Media
@@ -90,35 +90,6 @@ $headerHeightBottom: $padding;
 $colorTextActive: $primary;
 $colorTextHover : $secondary;
 $navLiBackgroundActive: darken($primary, 7%);
-
-/* Page
--------------------------------------------------- */
-$sectionTopHeight          : 20vmax;
-$sectionServicesTitleHeight: $padding * 6;
-$sectionServicesImageHeight: $padding * 6;
-$sectionServicesLiWidth    : $wrapperWidth / 3;
-$sectionServicesLiHeight   : $wrapperWidth / 2.5;
-
-$sectionServicesLiWidthPad : 100% / 2;
-
-$cardHoverBackground: lighten($third, 15%);  //lighten($primary, 60%)
-
-$inputHeight: $padding * 2.5;
-
-$structureLogoWidth: 20%;
-
-$sectionTopHeightMobile: 40vmax;
-
-/* News
--------------------------------------------------- */
-$sectionNewsLiWidth : $wrapperWidth / 2;
-$sectionNewsLiHeight: $wrapperWidth / 5.5;
-
-$sectionNewsLiWidthPad : $wrapperWidthPad / 2;
-
-/* Mobile
--------------------------------------------------- */
-$headerMobileTopHeight: $padding * 3;
 
 
 /*=====  End of Variable  ======*/
@@ -266,6 +237,24 @@ $headerMobileTopHeight: $padding * 3;
     font-weight: 700;
 }
 
+@include font-face (
+    "Palatino Linotype",
+    "fonts/PalatinoLinotype/Palatino Linotype",
+    ("woff", "woff2")
+    ) {
+    font-style: normal;
+    font-weight: 400;
+}
+
+@include font-face (
+    "Palatino Linotype Bold",
+    "fonts/PalatinoLinotypeBold/Palatino Linotype Bold",
+    ("woff", "woff2")
+    ) {
+    font-style: normal;
+    font-weight: 400;
+}
+
 // @include font-face (
 //     "si",
 //     "fonts/socicon/socicon",
@@ -276,14 +265,20 @@ $headerMobileTopHeight: $padding * 3;
 
 // @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('https://fonts.googleapis.com/css?family=PT+Mono&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Prata&family=Source+Serif+4:opsz@8..60&display=swap');
+// font-family: 'Lora', serif;
+// font-family: 'Prata', serif;
+// font-family: 'Source Serif 4', serif;
 
 $fa-font-path: 'fonts/';
 
-$primary-font:          $font-stack-helvetica;
-$heading-font:          "PF DinDisplay Bold";
-$heading-font-light:    "PF DinDisplay Reg";
+// $primary-font: $font-stack-helvetica;
+$primary-font: 'Prata', serif;
 
-$body-font-color     : $secondary;
+$heading-font      : 'Prata', serif;
+$heading-font-bold: 'Prata', serif;
+
+$body-font-color     : $primary;
 
 $body-font-size      : 1rem !default;
 $body-font-weight    : normal !default;
@@ -302,7 +297,7 @@ $font-size-large:   $font-size-base + 0.2 !default; // ~18px
 $font-size-small:   $font-size-base - 0.2 !default; // ~14px
 
 $font-size-h1:      2.8rem !default; //calc(1rem + 2vmax) !default; // ~3rem 48px modular-scale(6)
-$font-size-h2:      calc(1rem + 0.9vmax) !default; // ~2.5rem 40px modular-scale(5)
+$font-size-h2:      calc(1rem + 2vmax) !default; // ~2.5rem 40px modular-scale(5)
 $font-size-h3:      calc(1rem + 0.7vmax) !default; // ~2rem 33px
 $font-size-h4:      calc(1rem + 0.15vmax) !default; // ~1.728rem 28px
 $font-size-h5:      modular-scale(0) !default; // ~1.44rem 23px
@@ -311,7 +306,7 @@ $font-size-h6:      modular-scale(-1) !default; // ~1.2rem 19px
 %px {
     font: {
         family: $primary-font;
-        weight: $body-font-weight;
+        // weight: $body-font-weight;
         size: $font-size-base;
     };
     line-height: $body-line-height;
@@ -347,6 +342,7 @@ $font-size-h6:      modular-scale(-1) !default; // ~1.2rem 19px
     //letter-spacing: 0.04em;
     line-height: $heading-line-height;
     text-transform: uppercase;
+    color: $primary;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -366,7 +362,6 @@ body {
 h1 {
     @extend %hx;
     font-size: $font-size-h1;
-    color: $secondary;
     margin: ($padding * 2) 0 0;
     line-height: 0.5;
     //text-align: center;
@@ -381,31 +376,26 @@ h1 {
 h2 {
     @extend %hx;
     font-size: $font-size-h2;
-    color: $secondary;
 }
 
 h3 {
     @extend %hx;
     font-size: $font-size-h3;
-    color: $secondary;
 }
 
 h4 {
     @extend %hx;
     font-size: $font-size-h4;
-    color: $secondary;
 }
 
 h5 {
     @extend %hx;
     font-size: $font-size-h5;
-    color: $secondary;
 }
 
 h6 {
     @extend %hx;
     font-size: $font-size-h6;
-    color: $secondary;
 }
 
 .large-text {
@@ -450,6 +440,19 @@ i {
 svg {
     transition: all $base-duration;
 }
+
+.photoboxs-logo {
+
+    &__darkgray {
+        fill: $primary;
+    }
+
+    &__gray {
+        fill: $third;
+    }
+}
+
+
 
 %input {
     outline: none;
