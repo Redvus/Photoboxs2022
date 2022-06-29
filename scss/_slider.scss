@@ -1,0 +1,113 @@
+/*! @group Masterslider Team */
+/* ========================================================================== */
+.master-slider {
+	// -moz-transform: translate3d(0,0,1px);
+	//@include gradient-variant(top, #fff, 0%, #fff, 22%, $primary, 22%, $primary, 78%, #fff, 78%, #fff, 100%);
+	border-radius: 110px;
+	height: 216px;
+
+}
+
+.ms-staff-carousel {
+	max-width: 100%;
+	overflow: hidden;
+	margin: 50px auto 0;
+	position: relative;
+
+	.ms-view {
+		overflow:visible;
+		background-color: transparent;
+		visibility: hidden;
+	}
+
+	.ms-nav-prev {
+		// background: $nav-arrows 0 -210px no-repeat;
+		background-size: cover;
+		display: block;
+		width: 43px;
+		height: 103px;
+		left: -50px;
+		// margin-top: -44px;
+		position: absolute;
+		top: 50%;
+		cursor: pointer;
+		transform: translateY(-50%);
+	}
+
+	.ms-nav-next {
+		// background: $nav-arrows 0 -315px no-repeat;
+		background-size: cover;
+		display: block;
+		width: 43px;
+		height: 103px;
+		right: -63px;
+		left: auto;
+		// margin-top: -44px;
+		position: absolute;
+		top: 50%;
+		cursor: pointer;
+		transform: translateY(-50%);
+	}
+
+	&.ms-round {
+
+		 .ms-slide-bgcont {
+			border-radius: 5000px;
+			border: solid 8px #fff;
+			margin: 0 -8px;
+		}
+
+		.ms-nav-prev,
+		.ms-nav-next {
+			background-color:transparent;
+			box-shadow : none;
+			left: -80px;
+		}
+
+		.ms-nav-next {
+			left:auto;
+			right: -90px
+		}
+	}
+
+	@include grid-media($Small) {
+
+		.ms-view {
+			visibility: visible;
+		}
+
+		.ms-nav-prev {
+			left: -35px !important;
+		}
+
+		.ms-nav-next {
+			right: -45px !important;
+		}
+
+		&.ms-round {
+
+			.ms-slide-bgcont {
+				border: none;
+				margin:0;
+			}
+		}
+	}
+}
+
+.ms-info {
+	width: 60%;
+	margin: 30px auto 0;
+	padding-bottom: 30px;
+	//visibility: hidden;
+	//border-bottom: $border_2px;
+
+	p {
+		text-align: center;
+	}
+
+	@include grid-media($Small) {
+		width: 100%;
+	}
+}
+
+/* @end  */

@@ -10,12 +10,12 @@ $footer-grid: (
     width: 60rem;
     min-height: $headerHeight / 2;
     display: block;
-    position: relative;
+    position: absolute;
     // padding: 0 $padding;
     margin: 0 auto;
     padding: ($padding / 2) 0 ($padding / 3);
     bottom: 0;
-    left: 0;
+    // left: 0;
     font-size: $font-size-small;
     background-color: $fourth;
     color: $primary;

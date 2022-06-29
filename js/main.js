@@ -172,8 +172,42 @@
 
     /*============  End of Magnific  =============*/
 
+    /*==================================================
+    =                   Masterslider                   =
+    ==================================================*/
+
+    function sliderDecor() {
+        const sliderDecor = new MasterSlider();
+        // sliderIntro.control('arrows' ,{insertTo:'#sliderIntroArrow', autohide:false});
+        // sliderIntro.control('thumblist' ,{insertTo: '#sliderIntroThumbs', autohide:false, overVideo:true, dir:'h', speed:17, inset:false, arrows:false, hover:false, customClass:'', align:'bottom',type:'thumbs', margin:5, width:128, height:72, space:5, fillMode:'fill'});
+
+        sliderDecor.setup('decor_slider', {
+            width: 400,
+            height: 400,
+            autoHeight: true,
+            space: 0,
+            loop: true,
+            layout:'partialview',
+            dir             : "h",
+            parallaxMode    : 'swipe',
+            view            : "focus",
+            layersMode      : "center",
+            fillMode        : "fill",
+            viewOptions:{centerSpace:4},
+            fullwidth: true,
+            preload: 0,
+            speed:20,
+            grabCursor: true,
+            swipe: true
+            // mouse: false
+        });
+    }
+
+    /*============  End of Masterslider  =============*/
+
     function initPage() {
         scrollSmooth();
+        sliderDecor();
     }
 
     function initPageMobile() {

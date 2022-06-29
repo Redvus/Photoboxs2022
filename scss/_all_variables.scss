@@ -296,8 +296,8 @@ $font-size-base:    $body-font-size !default;
 $font-size-large:   $font-size-base + 0.2 !default; // ~18px
 $font-size-small:   $font-size-base - 0.2 !default; // ~14px
 
-$font-size-h1:      2.8rem !default; //calc(1rem + 2vmax) !default; // ~3rem 48px modular-scale(6)
-$font-size-h2:      calc(1rem + 2vmax) !default; // ~2.5rem 40px modular-scale(5)
+$font-size-h1:      calc(1rem + 6vmin) !default; //calc(1rem + 2vmax) !default; // ~3rem 48px modular-scale(6)
+$font-size-h2:      calc(1rem + 4vmin) !default; // ~2.5rem 40px modular-scale(5)
 $font-size-h3:      calc(1rem + 0.7vmax) !default; // ~2rem 33px
 $font-size-h4:      calc(1rem + 0.15vmax) !default; // ~1.728rem 28px
 $font-size-h5:      modular-scale(0) !default; // ~1.44rem 23px
@@ -452,8 +452,6 @@ svg {
     }
 }
 
-
-
 %input {
     outline: none;
     margin-bottom: 1rem;
@@ -523,6 +521,23 @@ select {
     font-size: inherit;
     cursor: inherit;
     line-height: inherit;
+}
+
+@keyframes development {
+    0% {
+        transform-origin: 0 0;
+        transform: scaleY(0);
+    }
+
+    50% {
+        transform-origin: 0 0;
+        transform: scaleY(100%);
+    }
+
+    100% {
+        transform-origin: 0 100%;
+        transform: scaleY(0);
+    }
 }
 /*=====  End of Layout  ======*/
 
